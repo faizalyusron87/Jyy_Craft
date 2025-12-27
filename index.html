@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JYY.CRAFT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#1e90ff;
+    --secondary:#0a3d62;
+    --bg:#eef6ff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:var(--bg)}
+html{scroll-behavior:smooth}
+
+/* HERO */
+.hero{
+    height:100vh;
+    background:linear-gradient(rgba(10,61,98,.85),rgba(10,61,98,.85));
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero h1{font-size:3.2rem;letter-spacing:3px}
+.hero h2{font-weight:300;margin:.5rem 0}
+.hero p{margin:1rem 0 2rem}
+
+.btn{
+    display:inline-block;
+    margin:.5rem;
+    padding:.9rem 2.5rem;
+    background:var(--primary);
+    color:white;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* SECTION */
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:5rem 2rem;
+}
+
+.title{
+    text-align:center;
+    color:var(--secondary);
+    margin-bottom:2rem;
+    font-size:2.2rem;
+}
+
+/* MENU */
+.menu{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1.5rem;
+}
+
+.card{
+    background:white;
+    padding:2rem;
+    border-radius:16px;
+    text-align:center;
+    font-weight:600;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    cursor:pointer;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    background:#f0f7ff;
+}
+
+/* GALERI */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:1.2rem;
+}
+
+.gallery img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+    border-radius:14px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    cursor:pointer;
+}
+
+/* BACK BUTTON */
+.back-btn{
+    display:inline-block;
+    margin-bottom:1.5rem;
+    background:#ddd;
+    padding:.6rem 1.5rem;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* GALERI TERSEMBUNYI */
+.gallery-section{display:none}
+
+/* LIGHTBOX */
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+    object-fit:contain;
+}
+
+.lightbox span{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:35px;
+    color:white;
+    cursor:pointer;
+}
+
+.nav{
+    position:absolute;
+    top:50%;
+    font-size:50px;
+    color:white;
+    cursor:pointer;
+    user-select:none;
+}
+
+.prev{left:20px}
+.next{right:20px}
+</style>
+</head>
+
+<body>
+
+<!-- HOME -->
+<section class="hero">
+<div>
+<h1>JYY.CRAFT</h1>
+<h2>aneka buket jombang</h2>
+<p>hallo dear !</p>
+
+<a href="#katalog" class="btn">Lihat Katalog Produk</a>
+<a href="https://wa.me/6285812204803?text=halo%20kak,%20saya%20mau%20order%20buket"
+target="_blank" class="btn">Pesan by WhatsApp</a>
+</div>
+</section>
+
+<!-- KATALOG -->
+<section id="katalog">
+<h2 class="title">Katalog Produk</h2>
+<div class="menu">
+<div class="card" onclick="showGallery('uang')">Buket Uang</div>
+<div class="card" onclick="showGallery('bunga')">Buket Bunga</div>
+<div class="card" onclick="showGallery('snack')">Buket Snack</div>
+<div class="card" onclick="showGallery('wisuda')">Buket Wisuda</div>
+<div class="card" onclick="showGallery('bumbu')">Buket Bumbu Dapur</div>
+</div>
+</section>
+
+<!-- GALERI TEMPLATE -->
+<section id="uang" class="gallery-section">
+<div class="back-btn" onclick="backToKatalog()">← Kembali ke Katalog</div>
+<h2 class="title">Buket Uang</h2>
+<div class="gallery">
+<script>for(let i=1;i<=41;i++)document.write(`<img src="u${i}.jpg" onclick="openLightbox(this, 'uang')">`)</script>
+</div>
+</section>
+
+<section id="bunga" class="gallery-section">
+<div class="back-btn" onclick="backToKatalog()">← Kembali ke Katalog</div>
+<h2 class="title">Buket Bunga</h2>
+<div class="gallery">
+<script>for(let i=1;i<=8;i++)document.write(`<img src="b${i}.jpg" onclick="openLightbox(this, 'bunga')">`)</script>
+</div>
+</section>
+
+<section id="snack" class="gallery-section">
+<div class="back-btn" onclick="backToKatalog()">← Kembali ke Katalog</div>
+<h2 class="title">Buket Snack</h2>
+<div class="gallery">
+<script>for(let i=1;i<=11;i++)document.write(`<img src="bs${i}.jpg" onclick="openLightbox(this, 'snack')">`)</script>
+</div>
+</section>
+
+<section id="wisuda" class="gallery-section">
+<div class="back-btn" onclick="backToKatalog()">← Kembali ke Katalog</div>
+<h2 class="title">Buket Wisuda</h2>
+<div class="gallery">
+<script>for(let i=1;i<=16;i++)document.write(`<img src="${i}.jpg" onclick="openLightbox(this, 'wisuda')">`)</script>
+</div>
+</section>
+
+<section id="bumbu" class="gallery-section">
+<div class="back-btn" onclick="backToKatalog()">← Kembali ke Katalog</div>
+<h2 class="title">Buket Bumbu Dapur</h2>
+<div class="gallery">
+<script>for(let i=1;i<=4;i++)document.write(`<img src="bd${i}.jpg" onclick="openLightbox(this, 'bumbu')">`)</script>
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+<span onclick="closeLightbox()">&times;</span>
+<div class="nav prev" onclick="prevImg()">❮</div>
+<img id="lightImg">
+<div class="nav next" onclick="nextImg()">❯</div>
+</div>
+
+<script>
+let images=[],current=0;
+
+function showGallery(id){
+document.querySelectorAll('.gallery-section').forEach(s=>s.style.display="none");
+document.getElementById(id).style.display="block";
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+function backToKatalog(){
+document.querySelectorAll('.gallery-section').forEach(s=>s.style.display="none");
+document.getElementById("katalog").scrollIntoView({behavior:"smooth"});
+}
+
+function openLightbox(el,gal){
+images=[...document.querySelectorAll(`#${gal} .gallery img`)];
+current=images.indexOf(el);
+document.getElementById("lightImg").src=el.src;
+document.getElementById("lightbox").style.display="flex";
+}
+
+function closeLightbox(){
+document.getElementById("lightbox").style.display="none";
+}
+
+function nextImg(){
+current=(current+1)%images.length;
+document.getElementById("lightImg").src=images[current].src;
+}
+
+function prevImg(){
+current=(current-1+images.length)%images.length;
+document.getElementById("lightImg").src=images[current].src;
+}
+
+/* SWIPE HP */
+let startX=0;
+document.getElementById("lightbox").addEventListener("touchstart",e=>{
+startX=e.touches[0].clientX;
+});
+document.getElementById("lightbox").addEventListener("touchend",e=>{
+let endX=e.changedTouches[0].clientX;
+if(startX-endX>50) nextImg();
+if(endX-startX>50) prevImg();
+});
+</script>
+
+</body>
+  </html>
